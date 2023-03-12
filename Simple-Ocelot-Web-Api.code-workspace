@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "productAPI"
+		},
+		{
+			"path": "customerAPI"
+		},
+		{
+			"path": "gatewayAPI"
+		}
+	],
+	"settings": {}
+}
