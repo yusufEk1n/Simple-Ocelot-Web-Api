@@ -1,0 +1,57 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/customer",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/customer",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/product",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/product",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+        "DownstreamPathTemplate": "/api/product/{id}",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5003
+                }
+            ],
+        "UpstreamPathTemplate": "/api/gateway/product/{id}",
+        "Priority":1,
+        "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+        "DownstreamPathTemplate": "/api/product/delete",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5003
+                }
+            ],
+        "UpstreamPathTemplate": "/api/gateway/product/delete",
+        "Priority":0,
+        "UpstreamHttpMethod": [ "Get"]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5005"
+  }
+}

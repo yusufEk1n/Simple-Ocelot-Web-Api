@@ -26,8 +26,6 @@ namespace productAPI.Controllers
          return Ok(new List<string> { "Kalem", "Kitap", "Silgi", "Defter" }[id]);
       }
       
-      // localhost:{PORT}/api/product/delete adresine yapılan ile get isteklerinde
-      // 'Silme işlemi başarılı' mesajı döndürülsün.
       [HttpDelete("[action]")]
       public IActionResult Delete()
       {

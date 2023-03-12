@@ -1,4 +1,13 @@
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Ocelot'u programımıza servis olarak tanıtırken, 'ocelot.json' konfigürasyonunu
+// parametre olarak verdik. Bu sayede ocelot servisi konfigürasyon dosyamıza göre
+// addres dönüşümlerini yapabilecek. 
+builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+builder.Services.AddOcelot(builder.Configuration);
 
 // Add services to the container.
 
@@ -21,5 +30,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// programımızın ocelot servisini sürekli kullanmasını istiyoruz.
+await app.UseOcelot();
 
 app.Run();
